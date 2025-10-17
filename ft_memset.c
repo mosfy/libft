@@ -6,13 +6,11 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 01:40:21 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/15 23:08:52 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/18 00:01:14 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// C program to demonstrate working of memset()
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -30,19 +28,4 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-// int	main()
-// {
-// 	char str[] = {1,10,13};
-// 	int i = 0;
 
-// 	// Fill 8 characters starting from str[13] with '.'
-// 	ft_memset(str, 102, 2);
-
-// 	printf("After memset():\n");
-// 	while(i<3)
-// 	{
-// 		printf("str[i] : %d\ni: %d\n", str[i], i);
-// 		i++;	
-// 	}
-// 	return (0);
-// }
