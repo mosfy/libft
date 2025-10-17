@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 01:40:21 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/15 01:50:18 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/15 23:08:52 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,35 @@
 #include <stdio.h>
 #include <string.h>
 
-int	main()
+void	*ft_memset(void *s, int c, size_t n)
 {
-	char str[50] = "GeeksForGeeks is for programming geeks.";
-	printf("\nBefore memset(): %s\n", str);
+	size_t			i;
+	unsigned char	*d;
 
-	// Fill 8 characters starting from str[13] with '.'
-	memset(str + 13, '.', 8*sizeof(char));
-
-	printf("After memset():  %s", str);
-	return (0);
+	i = 0;
+	d = (unsigned char *) s;
+	while (i < n)
+	{
+		d[i] = c;
+		i++;
+	}
+	s = (void *)d;
+	return (s);
 }
+
+// int	main()
+// {
+// 	char str[] = {1,10,13};
+// 	int i = 0;
+
+// 	// Fill 8 characters starting from str[13] with '.'
+// 	ft_memset(str, 102, 2);
+
+// 	printf("After memset():\n");
+// 	while(i<3)
+// 	{
+// 		printf("str[i] : %d\ni: %d\n", str[i], i);
+// 		i++;	
+// 	}
+// 	return (0);
+// }
