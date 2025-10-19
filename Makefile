@@ -6,11 +6,11 @@ TEST = a.out
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-      ft_strlen.c ft_memset.c ft_bzero.c
+SRC = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
+      ft_strlen.o ft_memset.o ft_bzero.o
 OBJ = $(SRC:.c=.o)
 
-TEST_SRC = main.c
+TEST_SRC = main.o
 TEST_OBJ = $(TEST_SRC:.c=.o)
 
 HEADER = libft.h
@@ -25,17 +25,11 @@ $(TEST): $(NAME) $(TEST_OBJ)
 	$(CC) $(CFLAGS) $(TEST_OBJ) -L. -lft -o $(TEST)
 	@echo " Programme compilé : $(TEST)"
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-
 clean:
-	-del /Q $(OBJ) $(TEST_OBJ) 2>nul || rm -f $(OBJ) $(TEST_OBJ)
-	@echo " Fichiers objets supprimés"
+	- rm -f $(OBJ) $(TEST_OBJ)
 
 fclean: clean
-	-del /Q $(NAME) $(TEST) 2>nul || rm -f $(NAME) $(TEST)
-	@echo " Tout supprimé"
-
+	- rm -f $(NAME) $(TEST)
+	
 re: fclean all
 
