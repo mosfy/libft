@@ -7,7 +7,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
-      ft_strlen.o ft_memset.o ft_bzero.o
+      ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o
 OBJ = $(SRC:.c=.o)
 
 TEST_SRC = main.o
