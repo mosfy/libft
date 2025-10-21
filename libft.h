@@ -31,6 +31,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 char	*ft_strrchr(const char *string, int searchedChar);
 char	*ft_strchr(const char *string, int searchedChar);
-
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

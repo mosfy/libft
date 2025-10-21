@@ -128,15 +128,17 @@ int main(void)
 
 	//printf("ft_strrchr : %s\n", ft_strrchr(test0, 'o'));
 
-	char s1[50] = "Cprogramming";
-	char s2[50] = "Cprogramming";
+	char s1[50] = "aaa";
+	char s2[50] = "aaz";
 
-	printf("strcmp between %s, and %s is %d\n", s1, s2, strcmp(s1,s2));
-	printf("strcmp between %s, and %s is %d\n", "yo", "yoooo", strcmp("yo","yoooo"));
-	printf("strcmp between %s, and %s is %d\n", s1, s2, ft_strcmp(s1,s2));
-	printf("strcmp between %s, and %s is %d\n", "yo", "yoooo", ft_strcmp("yo","yoooo"));
-     
-	return 0; 
+	printf("strncmp between %s, and %s is %d\n", s1, s2, strncmp(s1,s2,10));
+	printf("ft_strncmp between %s, and %s is %d\n", s1, s2, ft_strncmp(s1,s2,10));
+
+	char s3[50] = "";
+	char s4[50] = "k";
+
+	printf("strncmp between %s, and %s is %d\n", s3, s4, strncmp(s3,s4,10));
+	printf("ft_strncmp between %s, and %s is %d\n", s1, s2, ft_strncmp(s3,s4,10));
 
 	return (0);
 }
