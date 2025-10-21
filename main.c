@@ -25,8 +25,8 @@ int main(void)
 
 	// Fill 8 characters starting from str[13] with '.'
 	ft_bzero(str2 + 10, 10);
-
-	printf("After ft_bzero():  %s\n", str2);
+	
+	printf("After ft_bzero():  %s\n", str2); 
 
 	// Initialize a variable
     int a = 20;
@@ -83,7 +83,7 @@ int main(void)
 	char str5[50] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char str6[50] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char str8[50] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char str9[50] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //char str9[50] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     printf("Avant memcpy :  %s\n", str5);
     memcpy(str5 + 5, str5, 20);  
@@ -103,9 +103,40 @@ int main(void)
 
 	printf("\n");
 
-    printf("Avant ft_memmove : %s\n", str9);
-    ft_memmove(str9 + 5, str9, 20);  
-    printf("Après ft_memmove : %s\n", str9);
+    // printf("Avant ft_memmove : %s\n", str9);
+    // ft_memmove(str9 + 5, str9, 20);  
+    // printf("Après ft_memmove : %s\n", str9);
+
+	char buf[40] = "bonjour pour poire";
+	char * ptr;
+	int    ch = 'p';
+ 
+	/* This illustrates strrchr */
+	ptr = strrchr( buf, ch );
+	printf( "The last occurrence of %c in '%s' with strrchr is '%s'\n", ch, buf, ptr );
+
+	ptr = ft_strrchr( buf, ch );
+	printf( "The last occurrence of %c in '%s' with ft_strrchr is '%s'\n", ch, buf, ptr );
+
+	printf("\n");
+
+	ptr = strchr( buf, ch );
+	printf( "The first occurrence of %c in '%s' with strrchr is '%s'\n", ch, buf, ptr );
+	
+	ptr = ft_strchr( buf, ch );
+	printf( "The first occurrence of %c in '%s' with ft_strchr is '%s'\n", ch, buf, ptr );
+
+	//printf("ft_strrchr : %s\n", ft_strrchr(test0, 'o'));
+
+	char s1[50] = "Cprogramming";
+	char s2[50] = "Cprogramming";
+
+	printf("strcmp between %s, and %s is %d\n", s1, s2, strcmp(s1,s2));
+	printf("strcmp between %s, and %s is %d\n", "yo", "yoooo", strcmp("yo","yoooo"));
+	printf("strcmp between %s, and %s is %d\n", s1, s2, ft_strcmp(s1,s2));
+	printf("strcmp between %s, and %s is %d\n", "yo", "yoooo", ft_strcmp("yo","yoooo"));
+     
+	return 0; 
 
 	return (0);
 }

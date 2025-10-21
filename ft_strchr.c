@@ -1,16 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 01:26:44 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/21 16:14:54 by tfrances         ###   ########.fr       */
+/*   Created: 2025/10/21 17:42:57 by tfrances          #+#    #+#             */
+/*   Updated: 2025/10/21 18:46:12 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isascii(int c)
+#include "libft.h"
+
+char	*ft_strchr(const char *string, int searchedChar)
 {
-	return (c >= 127 || c <= 0);
+	int		i;
+	char	*s;
+
+	s = (char *) string;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)searchedChar)
+		{
+			return (&s[i]);
+		}
+		i++;
+	}
+	return (NULL);
 }
