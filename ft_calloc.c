@@ -6,24 +6,27 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 02:57:42 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/24 03:09:31 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:22:34 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*calloc(size_t nmemb, size_t size)
-{
-	unsigned char tmp;
-	int i;
+#include "libft.h"
 
-	if (nmemb == 0 || size == 0)
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char *tmp;
+	size_t i;
+
+	if (nmemb == 0 || size == 0 || (nmemb*size < INT_MAX))
 		return (NULL);
 	i = 0;
 	tmp = malloc(nmemb * size);
 	if (!tmp)
 		return (NULL);
-	while (i <= nmemb * size)
+	while (i < nmemb * size)
 	{
 		tmp[i] = 0;
+		i++;
 	}
 	return (tmp);
 }

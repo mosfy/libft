@@ -243,5 +243,55 @@ int main(void)
 	printf("ft_atoi of %s is %d\n", nbr3,ft_atoi(nbr3));
 	printf("ft_atoi of %s is %d\n", nbr4,ft_atoi(nbr4));
 	printf("ft_atoi of %s is %d\n", nbr5,ft_atoi(nbr5));
+	
+	printf("\n");
+    
+    int i;
+    int * pointer1 = (int *) calloc( 10, sizeof(int) );
+
+	// printf( "befor calloc :" );
+
+    // for (i=0; i<10; i++ ) {
+    //     printf( "%d ", pointer1[i] );
+    // }
+	
+	//  printf( "\n" );
+
+	// for ( i=0; i<10; i++ ) {
+    //     pointer1[i] = i;
+    // }
+
+	// printf( "after calloc :" );
+
+    // for (i=0; i<10; i++ ) {
+    //     printf( "%d ", pointer1[i] );
+    // }
+    // printf( "\n" );
+
+    // free( pointer1 );
+
+	int *pointer2 = (int *) ft_calloc( 10, sizeof(int) );
+
+	printf( "befor ft_calloc :" );
+
+    for (i=0; i<10; i++ ) {
+        printf( "%d ", pointer2[i] );
+    }
+	
+	 printf( "\n" );
+
+	// for ( i=0; i<10; i++ ) {
+    //     pointer2[i] = i;
+    // }
+
+	// printf( "after ft_calloc :" );
+
+    // for (i=0; i<10; i++ ) {
+    //     printf( "%d ", pointer2[i] );
+    // }
+    // printf( "\n" );
+
+    free( pointer2 );
+
 	return (0);
 }
