@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:58:23 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/21 18:45:29 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/24 03:10:01 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ char	*ft_strrchr(const char *string, int searchedChar)
 
 	s = (char *) string;
 	i = ft_strlen(string);
-	// if (!string || !searchedChar)
-	// {
-	// 	return (NULL);
-	// }
 	while (i != 0)
 	{
 		if (s[i] == (char)searchedChar)

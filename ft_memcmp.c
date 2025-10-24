@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 01:40:21 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/24 03:11:46 by tfrances         ###   ########.fr       */
+/*   Created: 2025/10/24 01:52:37 by tfrances          #+#    #+#             */
+/*   Updated: 2025/10/24 02:21:33 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
+	unsigned char	*str1;
+	unsigned char	*str2;
 	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
 
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	d = (unsigned char *) dest;
-	s = (unsigned char *) src;
-	while (i < n)
-	{
-		d[i] = s[i];
+	while (n > i)
+	{	
+		printf("1 : %c 2 : %c\n", str1[i],str2[i]);
+		if (str1[i] != str2[i])
+		{
+			printf("%c et %c sont different\n", str1[i],str2[i]);
+			return (str1[i] - str2[i]);
+		}
 		i++;
 	}
-	return (dest);
+	return (str1[i] - str2[i]);
 }

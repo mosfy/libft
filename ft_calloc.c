@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 01:40:21 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/24 03:11:46 by tfrances         ###   ########.fr       */
+/*   Created: 2025/10/24 02:57:42 by tfrances          #+#    #+#             */
+/*   Updated: 2025/10/24 03:09:31 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*calloc(size_t nmemb, size_t size)
 {
-	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char tmp;
+	int i;
 
+	if (nmemb == 0 || size == 0)
+		return (NULL);
 	i = 0;
-	d = (unsigned char *) dest;
-	s = (unsigned char *) src;
-	while (i < n)
+	tmp = malloc(nmemb * size);
+	if (!tmp)
+		return (NULL);
+	while (i <= nmemb * size)
 	{
-		d[i] = s[i];
-		i++;
+		tmp[i] = 0;
 	}
-	return (dest);
+	return (tmp);
 }

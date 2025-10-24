@@ -127,6 +127,7 @@ int main(void)
 	printf( "The first occurrence of %c in '%s' with ft_strchr is '%s'\n", ch, buf, ptr );
 
 	//printf("ft_strrchr : %s\n", ft_strrchr(test0, 'o'));
+	printf("\n");
 
 	char s1[50] = "aaa";
 	char s2[50] = "aaz";
@@ -134,11 +135,113 @@ int main(void)
 	printf("strncmp between %s, and %s is %d\n", s1, s2, strncmp(s1,s2,10));
 	printf("ft_strncmp between %s, and %s is %d\n", s1, s2, ft_strncmp(s1,s2,10));
 
+	printf("\n");
+
 	char s3[50] = "";
 	char s4[50] = "k";
 
 	printf("strncmp between %s, and %s is %d\n", s3, s4, strncmp(s3,s4,10));
 	printf("ft_strncmp between %s, and %s is %d\n", s1, s2, ft_strncmp(s3,s4,10));
 
+	printf("\n");
+
+	int numbers[] = {10, 20, 30, 40, 50};
+    int target = 30;
+    void *result;
+
+    // Search for value 30 in the array
+    result = memchr(numbers, target, sizeof(numbers));
+
+    if (result != NULL) {
+        size_t pos = ((int*)result - numbers);
+        printf("Found %d at index %zu with memchr\n", target, pos);
+    } else {
+        printf("%d not found in array with memchr\n", target);
+    }
+
+	printf("\n");
+
+	result = ft_memchr(numbers, target, sizeof(numbers));
+
+    if (result != NULL) {
+        size_t pos = ((int*)result - numbers);
+        printf("Found %d at index %zu with ft_memchr \n", target, pos);
+    } else {
+        printf("%d not found in array with ft_memchr\n", target);
+    }
+
+	printf("\n");
+
+	char data[] = "Hello, World!";
+    char *resul;
+    target = 'W';
+
+    // Search for 'W' in first 13 bytes
+    resul = memchr(data, target, 13);
+
+    if (resul != NULL) {
+        printf("Found '%c' at position with memchr %s\n", target, resul );
+    } else {
+        printf("Character '%c' not found with memchr\n", target);
+    }
+
+	printf("\n");
+
+	resul = ft_memchr(data, target, 13);
+
+    if (resul != NULL) {
+        printf("Found '%c' at position with ft_memchr %s\n", target, resul );
+    } else {
+        printf("Character '%c' not found with ft_memchr\n", target);
+    }
+
+	printf("\n");
+
+	char st1[50] = "aaa";
+	char st2[50] = "aaa";
+
+	printf("\n");
+
+	printf("memcmp between %s, and %s is %d\n", st1, st2, memcmp(st1,st2,10));
+	printf("ft_memcmp between %s, and %s is %d\n", st1, st2, ft_memcmp(st1,st2,10));
+
+	char st3[50] = "";
+	char st4[50] = "k";
+
+	printf("\n");
+
+	printf("memcmp between %s, and %s is %d\n", st3, st4, memcmp(s3,s4,10));
+	printf("ft_memcmp between %s, and %s is %d\n", st3, st4, ft_memcmp(s3,s4,10));
+
+	printf("\n");
+
+	int numbers1[] = {53, 52, 15};
+	int numbers2[] = {53, 62, 30};
+
+	printf("memcmp between numbers1, and numbers2 is %d\n", memcmp(numbers1,numbers2,10));
+	printf("ft_memcmp between numbers1, and numbers2 is %d\n", ft_memcmp(numbers1,numbers2,10));
+
+	printf("\n");
+
+	char nbr1[10] = "12";
+	char nbr2[10] = "-12";
+	char nbr3[10] = " 12";
+	char nbr4[10] = " \f1grgr2";
+	char nbr5[10] = "1grgr2";
+
+
+	printf("atoi of %s is %d\n", nbr1,atoi(nbr1));
+	printf("atoi of %s is %d\n", nbr2,atoi(nbr2));
+	printf("atoi of %s is %d\n", nbr3,atoi(nbr3));
+	printf("atoi of %s is %d\n", nbr4,atoi(nbr4));
+	printf("atoi of %s is %d\n", nbr5,atoi(nbr5));
+
+	printf("\n");
+
+	printf("ft_atoi of %s is %d\n", nbr1,ft_atoi(nbr1));
+	printf("ft_atoi of %s is %d\n", nbr2,ft_atoi(nbr2));
+	printf("ft_atoi of %s is %d\n", nbr3,ft_atoi(nbr3));
+	printf("ft_atoi of %s is %d\n", nbr4,ft_atoi(nbr4));
+	printf("ft_atoi of %s is %d\n", nbr5,ft_atoi(nbr5));
 	return (0);
 }
