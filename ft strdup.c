@@ -1,19 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 01:14:45 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/24 20:22:21 by tfrances         ###   ########.fr       */
+/*   Created: 2025/10/25 01:40:49 by tfrances          #+#    #+#             */
+/*   Updated: 2025/10/25 01:41:00 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalnum(int c)
-{
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9'));
-}
+char *ft_substr(char const *s, unsigned int start, size_t len);

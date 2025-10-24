@@ -1,3 +1,4 @@
+
 #include "libft.h"
 
 int main(void)
@@ -247,51 +248,69 @@ int main(void)
 	printf("\n");
     
     int i;
-    int * pointer1 = (int *) calloc( 10, sizeof(int) );
+    int * pointer = (int *) calloc( 10, sizeof(int) );
 
-	// printf( "befor calloc :" );
-
-    // for (i=0; i<10; i++ ) {
-    //     printf( "%d ", pointer1[i] );
-    // }
-	
-	//  printf( "\n" );
-
-	// for ( i=0; i<10; i++ ) {
-    //     pointer1[i] = i;
-    // }
-
-	// printf( "after calloc :" );
-
-    // for (i=0; i<10; i++ ) {
-    //     printf( "%d ", pointer1[i] );
-    // }
-    // printf( "\n" );
-
-    // free( pointer1 );
-
-	int *pointer2 = (int *) ft_calloc( 10, sizeof(int) );
-
-	printf( "befor ft_calloc :" );
+	printf( "befor calloc :" );
 
     for (i=0; i<10; i++ ) {
-        printf( "%d ", pointer2[i] );
+        printf( "%d ", pointer[i] );
     }
 	
 	 printf( "\n" );
 
-	// for ( i=0; i<10; i++ ) {
-    //     pointer2[i] = i;
-    // }
+	for ( i=0; i<10; i++ ) {
+        pointer[i] = i;
+    }
 
-	// printf( "after ft_calloc :" );
+	printf( "after calloc :" );
 
-    // for (i=0; i<10; i++ ) {
-    //     printf( "%d ", pointer2[i] );
-    // }
-    // printf( "\n" );
+    for (i=0; i<10; i++ ) {
+        printf( "%d ", pointer[i] );
+    }
+    printf( "\n" );
 
-    free( pointer2 );
+    free( pointer );
+
+	pointer = (int *) ft_calloc( 10, sizeof(int) );
+
+	printf( "befor ft_calloc :" );
+
+    for (i=0; i<10; i++ ) {
+        printf( "%d ", pointer[i] );
+    }
+	
+	 printf( "\n" );
+
+	for ( i=0; i<10; i++ ) {
+        pointer[i] = i;
+    }
+
+	printf( "after ft_calloc :" );
+
+    for (i=0; i<10; i++ ) {
+        printf( "%d ", pointer[i] );
+    }
+    printf( "\n" );
+
+    free( pointer );
+
+	char big[] = "bonjour";
+	char little[] = "jour";
+
+	printf("Result with ft_strnstr: %s\n", ft_strnstr(big, little, 7));
+	printf("Result with ft_strnstr: %s\n", ft_strnstr(big, little, 4));
+
+	char *s = "Hello libft !";
+    char *stri1 = strdup(s);
+    char *stri2 = ft_strdup(s);
+
+	printf( "\n" );
+
+    printf("strdup:    %s\n", stri1);
+    printf("ft_strdup: %s\n", stri2);
+
+    free(stri1);
+    free(stri2);
 
 	return (0);
 }
