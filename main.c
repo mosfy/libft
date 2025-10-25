@@ -300,7 +300,8 @@ int main(void)
 	printf("Result with ft_strnstr: %s\n", ft_strnstr(big, little, 7));
 	printf("Result with ft_strnstr: %s\n", ft_strnstr(big, little, 4));
 
-	char *s = "Hello libft !";
+	char *s  = "Hello libft !";
+	char *s0 = "acca   This is another sentence   cccccca";
     char *stri1 = strdup(s);
     char *stri2 = ft_strdup(s);
 
@@ -311,6 +312,21 @@ int main(void)
 
     free(stri1);
     free(stri2);
+
+	printf( "\n" );
+
+	printf("ft_substr: %s\n", ft_substr(s,2,5));
+	printf("ft_substr: %s\n", ft_substr(s,2,100));
+	printf("ft_substr: %s\n", ft_substr(s,50,5));
+	printf("ft_substr: %s\n", ft_substr(s,-1,-2));
+
+	printf( "\n" );
+
+	printf("ft_strjoin beetween %s and %s is : %s", s,s0,ft_strjoin(s,s0));
+
+	printf( "\n" );
+
+	printf("ft_strtrim of %s is %s",s0,ft_strtrim(s0,"caca"));
 
 	return (0);
 }
