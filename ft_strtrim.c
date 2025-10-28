@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 02:33:48 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/25 03:29:27 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/28 02:04:10 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ char *ft_strtrim(char const *s1, char const *set)
 
 	while (end > start && char_in_set(s1[end - 1], set))
 		end--;
-
 	res = ft_substr(s1, start, end - start);
 	return (res);
-	
 }

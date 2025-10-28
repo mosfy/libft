@@ -328,5 +328,9 @@ int main(void)
 
 	printf("ft_strtrim of %s is %s",s0,ft_strtrim(s0,"caca"));
 
+	char **strstr = ft_split(s0,' ');
+	for (i = 0; i < 7;i++)
+	 	printf("ft_split : s0[%d]%s\n",i,strstr[i]);
+
 	return (0);
 }
