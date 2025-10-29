@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 17:42:57 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/21 18:46:12 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/29 03:53:25 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ char	*ft_strchr(const char *string, int searchedChar)
 		}
 		i++;
 	}
+	if (s[i] == (char)searchedChar)
+		return (&s[i]);
 	return (NULL);
 }

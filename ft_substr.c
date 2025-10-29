@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 01:40:49 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/28 01:58:50 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/29 03:59:44 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	size;
 
 	if (start >= ft_strlen(s))
-		return ("");
+	{
+		res = malloc(1);
+		if (!res)
+			return (NULL);
+		res[0] = '\0';
+		return (res);
+	}
 	if (ft_strlen(s + start) > len)
 		size = len;
 	else
