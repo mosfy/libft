@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 02:33:48 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/29 02:32:50 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/29 18:31:25 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	char_in_set(char c, char const *set)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (set[i])
@@ -35,12 +35,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	if (!s1 || !set)
 		return (NULL);
-
 	end = ft_strlen(s1);
-
 	while (s1[start] && char_in_set(s1[start], set))
 		start++;
-
 	while (end > start && char_in_set(s1[end - 1], set))
 		end--;
 	res = ft_substr(s1, start, end - start);

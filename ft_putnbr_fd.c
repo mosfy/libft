@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 01:48:57 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/29 02:30:07 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/29 18:29:03 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	char	*res;
+
+	res = ft_itoa(n);
+	if (res)
+		ft_putstr_fd(res, fd);
+	free (res);
 }
