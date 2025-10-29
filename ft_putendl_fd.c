@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 01:46:43 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/29 01:47:55 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/29 02:25:38 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s,fd);
-	ft_putchar_fd('\n',fd);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

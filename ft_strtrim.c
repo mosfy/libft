@@ -6,15 +6,17 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 02:33:48 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/28 02:04:10 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/29 02:32:50 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int char_in_set(char c, char const *set)
+int	char_in_set(char c, char const *set)
 {
-	size_t i = 0;
+	size_t i;
+
+	i = 0;
 	while (set[i])
 	{
 		if (set[i] == c)
@@ -24,11 +26,11 @@ int char_in_set(char c, char const *set)
 	return (0);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t start;
-	size_t end;
-	char *res;
+	size_t	start;
+	size_t	end;
+	char	*res;
 
 	start = 0;
 	if (!s1 || !set)

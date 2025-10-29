@@ -1,0 +1,273 @@
+#include "libft.h"
+
+int main(void)
+{
+    printf("===== TEST ft_strlen =====\n");
+    printf("Longueur de 'Hello' = %ld\n", ft_strlen("Hello"));
+
+    /* ===================================================================== */
+    printf("\n===== TEST ft_memset =====\n");
+    char str0[50] = "GeeksForGeeks is for programming geeks.";
+    printf("Before memset(): %s\n", str0);
+    ft_memset(str0 + 13, '.', 8 * sizeof(char));
+    printf("After memset():  %s\n", str0);
+
+    /* ===================================================================== */
+    printf("\n===== TEST bzero / ft_bzero =====\n");
+    char str1[50] = "GeeksForGeeks is for programming geeks.";
+    char str2[50] = "GeeksForGeeks is for programming geeks.";
+
+    printf("Before bzero(): %s\n", str1);
+    bzero(str1 + 10, 10);
+    printf("After bzero():  %s\n", str1);
+
+    printf("\nBefore ft_bzero(): %s\n", str2);
+    ft_bzero(str2 + 10, 10);
+    printf("After ft_bzero():  %s\n", str2);
+
+    /* ===================================================================== */
+    printf("\n===== TEST memcpy / ft_memcpy =====\n");
+    int a = 20, b = 10;
+
+    printf("Value of b before memcpy: %d\n", b);
+    memcpy(&b, &a, sizeof(int));
+    printf("Value of b after memcpy:  %d\n", b);
+
+    a = 20; b = 10;
+    printf("\nValue of b before ft_memcpy: %d\n", b);
+    ft_memcpy(&b, &a, sizeof(int));
+    printf("Value of b after ft_memcpy:  %d\n", b);
+
+    char str4[50] = "123456789";
+    printf("\nBefore memcpy(): %s\n", str4);
+    memcpy(str4, str4 + 2, 5);
+    printf("After memcpy():  %s\n", str4);
+
+    char str7[50] = "123456789";
+    printf("\nBefore ft_memcpy(): %s\n", str7);
+    ft_memcpy(str7, str7 + 2, 5);
+    printf("After ft_memcpy():  %s\n", str7);
+
+    /* ===================================================================== */
+    printf("\n===== TEST memmove / ft_memmove =====\n");
+    char str3[50] = "123456789";
+    printf("Before memmove(): %s\n", str3);
+    memmove(str3, str3 + 2, 5);
+    printf("After memmove():  %s\n", str3);
+
+    char str10[50] = "123456789";
+    printf("\nBefore ft_memmove(): %s\n", str10);
+    ft_memmove(str10, str10 + 2, 5);
+    printf("After ft_memmove():  %s\n", str10);
+
+    
+    printf("===== TEST MEMCPY =====\n\n");
+
+    char str11[30] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char str12[30] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    printf("Avant memcpy :    %s\n", str11);
+    memcpy(str11 + 5, str11, 20);
+    printf("Après memcpy :    %s\n\n", str11);
+
+    printf("Avant ft_memcpy : %s\n", str12);
+    ft_memcpy(str12 + 5, str12, 20);
+    printf("Après ft_memcpy : %s\n\n", str12);
+
+    /* ===================================================================== */
+
+    printf("\n===== TEST MEMMOVE =====\n\n");
+
+    char str13[30] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char str14[30] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    printf("Avant memmove :    %s\n", str13);
+    memmove(str13 + 5, str13, 20);
+    printf("Après memmove :    %s\n\n", str13);
+
+    printf("Avant ft_memmove : %s\n", str14);
+    ft_memmove(str14 + 5, str14, 20);
+    printf("Après ft_memmove : %s\n\n", str14);
+
+    /* ===================================================================== */
+    printf("\n===== TEST strchr / strrchr =====\n");
+    char buf[40] = "bonjour pour poire";
+    int ch = 'p';
+    char *ptr;
+
+    ptr = strrchr(buf, ch);
+    printf("strrchr  -> Last '%c' in '%s' : '%s'\n", ch, buf, ptr);
+
+    ptr = ft_strrchr(buf, ch);
+    printf("ft_strrchr -> Last '%c' in '%s' : '%s'\n", ch, buf, ptr);
+
+    ptr = strchr(buf, ch);
+    printf("strchr  -> First '%c' in '%s' : '%s'\n", ch, buf, ptr);
+
+    ptr = ft_strchr(buf, ch);
+    printf("ft_strchr -> First '%c' in '%s' : '%s'\n", ch, buf, ptr);
+
+    /* ===================================================================== */
+    printf("\n===== TEST strncmp / ft_strncmp =====\n");
+    char s1[] = "aaa";
+    char s2[] = "aaz";
+    char s3[] = "";
+    char s4[] = "k";
+
+    printf("strncmp(%s, %s) = %d\n", s1, s2, strncmp(s1, s2, 10));
+    printf("ft_strncmp(%s, %s) = %d\n", s1, s2, ft_strncmp(s1, s2, 10));
+
+    printf("\nstrncmp(%s, %s) = %d\n", s3, s4, strncmp(s3, s4, 10));
+    printf("ft_strncmp(%s, %s) = %d\n", s3, s4, ft_strncmp(s3, s4, 10));
+
+    /* ===================================================================== */
+    printf("\n===== TEST memchr / ft_memchr =====\n");
+    int numbers[] = {10, 20, 30, 40, 50};
+    int target = 30;
+    void *result = memchr(numbers, target, sizeof(numbers));
+
+    if (result)
+        printf("Found %d at index %ld (memchr)\n", target, (int*)result - numbers);
+    else
+        printf("%d not found (memchr)\n", target);
+
+    result = ft_memchr(numbers, target, sizeof(numbers));
+    if (result)
+        printf("Found %d at index %ld (ft_memchr)\n", target, (int*)result - numbers);
+    else
+        printf("%d not found (ft_memchr)\n", target);
+
+    char data[] = "Hello, World!";
+    target = 'W';
+    char *resul = memchr(data, target, 13);
+    printf("\nmemchr -> %s\n", resul ? resul : "(null)");
+
+    resul = ft_memchr(data, target, 13);
+    printf("ft_memchr -> %s\n", resul ? resul : "(null)");
+
+    /* ===================================================================== */
+    printf("\n===== TEST memcmp / ft_memcmp =====\n");
+    char st1[] = "aaa", st2[] = "aaa", st3[] = "", st4[] = "k";
+    int n1[] = {53, 52, 15}, n2[] = {53, 62, 30};
+
+    printf("memcmp(%s, %s) = %d\n", st1, st2, memcmp(st1, st2, 10));
+    printf("ft_memcmp(%s, %s) = %d\n", st1, st2, ft_memcmp(st1, st2, 10));
+
+    printf("\nmemcmp(%s, %s) = %d\n", st3, st4, memcmp(st3, st4, 10));
+    printf("ft_memcmp(%s, %s) = %d\n", st3, st4, ft_memcmp(st3, st4, 10));
+
+    printf("\nmemcmp(numbers1, numbers2) = %d\n", memcmp(n1, n2, 10));
+    printf("ft_memcmp(numbers1, numbers2) = %d\n", ft_memcmp(n1, n2, 10));
+
+    /* ===================================================================== */
+    printf("\n===== TEST atoi / ft_atoi =====\n");
+    char nbr1[] = "12", nbr2[] = "-12", nbr3[] = " 12", nbr4[] = " \f1grgr2", nbr5[] = "1grgr2";
+
+    printf("atoi: %d %d %d %d %d\n",
+           atoi(nbr1), atoi(nbr2), atoi(nbr3), atoi(nbr4), atoi(nbr5));
+    printf("ft_atoi: %d %d %d %d %d\n",
+           ft_atoi(nbr1), ft_atoi(nbr2), ft_atoi(nbr3), ft_atoi(nbr4), ft_atoi(nbr5));
+
+    /* ===================================================================== */
+    printf("\n===== TEST calloc / ft_calloc =====\n");
+    int *pointer = calloc(10, sizeof(int));
+    printf("Before calloc: ");
+    for (int i = 0; i < 10; i++) printf("%d ", pointer[i]);
+    printf("\n");
+
+    for (int i = 0; i < 10; i++) pointer[i] = i;
+    printf("After calloc: ");
+    for (int i = 0; i < 10; i++) printf("%d ", pointer[i]);
+    printf("\n");
+    free(pointer);
+
+    pointer = ft_calloc(10, sizeof(int));
+    printf("Before ft_calloc: ");
+    for (int i = 0; i < 10; i++) printf("%d ", pointer[i]);
+    printf("\n");
+
+    for (int i = 0; i < 10; i++) pointer[i] = i;
+    printf("After ft_calloc: ");
+    for (int i = 0; i < 10; i++) printf("%d ", pointer[i]);
+    printf("\n");
+    free(pointer);
+
+    /* ===================================================================== */
+    printf("\n===== TEST ft_strnstr =====\n");
+    char big[] = "bonjour", little[] = "jour";
+    printf("ft_strnstr(big, little, 7): %s\n", ft_strnstr(big, little, 7));
+    printf("ft_strnstr(big, little, 4): %s\n", ft_strnstr(big, little, 4));
+
+    /* ===================================================================== */
+    printf("\n===== TEST strdup / ft_strdup =====\n");
+    char *s = "Hello libft !";
+    char *s0 = "acca   This is another sentence   cccccca";
+
+    char *dup1 = strdup(s);
+    char *dup2 = ft_strdup(s);
+    printf("strdup:    %s\n", dup1);
+    printf("ft_strdup: %s\n", dup2);
+    free(dup1);
+    free(dup2);
+
+    /* ===================================================================== */
+    printf("\n===== TEST ft_substr =====\n");
+    printf("ft_substr(s, 2, 5): %s\n", ft_substr(s, 2, 5));
+    printf("ft_substr(s, 2, 100): %s\n", ft_substr(s, 2, 100));
+    printf("ft_substr(s, 50, 5): %s\n", ft_substr(s, 50, 5));
+    printf("ft_substr(s, -1, -2): %s\n", ft_substr(s, -1, -2));
+
+    /* ===================================================================== */
+    printf("\n===== TEST ft_strjoin =====\n");
+    printf("ft_strjoin('%s', '%s') -> %s\n", s, s0, ft_strjoin(s, s0));
+
+    /* ===================================================================== */
+    printf("\n===== TEST ft_strtrim =====\n");
+    printf("ft_strtrim('%s', 'caca') -> %s\n", s0, ft_strtrim(s0, "caca"));
+
+    /* ===================================================================== */
+    printf("\n===== TEST ft_split =====\n");
+    char **strtab = ft_split(s0, ' ');
+    for (int i = 0; i < 7 && strtab[i]; i++)
+        printf("ft_split[%d]: %s\n", i, strtab[i]);
+
+    /* ===================================================================== */
+    ft_putstr_fd("===== TEST ft_putchar_fd =====\n", 1);
+    ft_putstr_fd("Doit afficher 'A' : ", 1);
+    ft_putchar_fd('A', 1);
+    ft_putchar_fd('\n', 1);
+
+    /* ===================================================================== */
+    ft_putchar_fd('\n', 1);
+    ft_putstr_fd("===== TEST ft_putstr_fd =====\n", 1);
+    ft_putstr_fd("Doit afficher 'Hello World!' : ", 1);
+    ft_putstr_fd("Hello World!", 1);
+    ft_putchar_fd('\n', 1);
+
+    /* ===================================================================== */
+    ft_putchar_fd('\n', 1);
+    ft_putstr_fd("===== TEST ft_putendl_fd =====\n", 1);
+    ft_putstr_fd("Doit afficher 'Bonjour avec ft_putendl_fd' suivi d'un retour à la ligne :\n", 1);
+    ft_putendl_fd("Bonjour avec ft_putendl_fd", 1);
+
+    /* ===================================================================== */
+    ft_putchar_fd('\n', 1);
+    ft_putstr_fd("===== TEST ft_putnbr_fd =====\n", 1);
+    ft_putstr_fd("Doit afficher -42 : ", 1);
+    ft_putnbr_fd(-42, 1);
+    ft_putchar_fd('\n', 1);
+
+    ft_putstr_fd("Doit afficher 0 : ", 1);
+    ft_putnbr_fd(0, 1);
+    ft_putchar_fd('\n', 1);
+
+    ft_putstr_fd("Doit afficher 123456789 : ", 1);
+    ft_putnbr_fd(123456789, 1);
+    ft_putchar_fd('\n', 1);
+
+    /* ===================================================================== */
+    ft_putchar_fd('\n', 1);
+    ft_putstr_fd("===== FIN DES TESTS =====\n", 1);
+    return 0;
+
+}
