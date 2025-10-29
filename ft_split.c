@@ -6,73 +6,75 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 17:12:27 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/28 02:03:40 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/10/29 02:06:07 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_countworld(char *s, char c)
+int	ft_countworld(const char *s, char c)
 {
 	int	i;
-	int	res;
+	int	count;
+	int	in_word;
 
-	res = 0;
 	i = 0;
+	count = 0;
+	in_word = 0;
 	if (!s)
 		return (0);
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && !in_word)
 		{
-			while (s[i] == c)
-				i++;
-			res++;
+			in_word = 1;
+			count++;
 		}
+		else if (s[i] == c)
+			in_word = 0;
 		i++;
 	}
-	return (res);
+	return (count);
 }
 
-size_t	ft_strlenchr(char *s, char c)
+static size_t	ft_strlenchr(const char *s, char c)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
-	while (s[i] != c && s[i])
-		i++;
-	return (i);
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
 	char	**res;
-	char	*tmp;
+	int		i;
 	int		j;
-	int		k;
+	size_t	len;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = 0;
-	k = 0;
-	tmp = (char *)s;
-	ft_strtrim(tmp, &c);
-	res = malloc((ft_countworld(tmp, c) + 1) * (sizeof (char *)));
+	res = malloc((ft_countworld(s, c) + 1) * sizeof(char *));
 	if (!res)
 		return (NULL);
-	res[j] = malloc(ft_strlenchr(tmp + i, c) + 1);
-	while (tmp[i])
+	while (s[i])
 	{
-		if (tmp[i] == c)
+		while (s[i] == c)
+			i++;
+		if (s[i])
 		{
-			while (tmp[i] == c)
-				++i;
-			res[j][k++] = '\0';
+			len = ft_strlenchr(s + i, c);
+			res[j] = malloc(len + 1);
+			ft_strlcpy(res[j], s + i, len + 1);
+			i += len;
 			j++;
-			k = 0;
-			res[j] = malloc(ft_strlenchr(tmp + i, c) + 1);
 		}
-		res[j][k++] = tmp[i++];
 	}
+	res[j] = NULL;
 	return (res);
 }
