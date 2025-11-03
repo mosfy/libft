@@ -6,12 +6,11 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 01:40:14 by tfrances          #+#    #+#             */
-/*   Updated: 2025/10/29 19:03:54 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/11/03 22:18:58 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static void	ft_free(char **tab, size_t allocated)
 {
@@ -47,7 +46,7 @@ static size_t	ft_count_words(const char *s, char c)
 	return (count);
 }
 
-static void	ft_alloc(char **tab, const char *s, char c)
+static int	ft_alloc(char **tab, const char *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -60,7 +59,7 @@ static void	ft_alloc(char **tab, const char *s, char c)
 		while (s[i] == c)
 			i++;
 		if (s[i] == '\0')
-			return ;
+			break ;
 		start = i;
 		while (s[i] && s[i] != c)
 			i++;
@@ -68,11 +67,12 @@ static void	ft_alloc(char **tab, const char *s, char c)
 		if (!tab[j])
 		{
 			ft_free(tab, j);
-			return ;
+			return (1);
 		}
 		j++;
 	}
 	tab[j] = NULL;
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -86,11 +86,7 @@ char	**ft_split(char const *s, char c)
 	tbl = ft_calloc(sizeof(char *), word_count + 1);
 	if (!tbl)
 		return (NULL);
-	ft_alloc(tbl, s, c);
-	if (!tbl[0] && word_count > 0)
-	{
-		free(tbl);
+	if (ft_alloc(tbl, s, c))
 		return (NULL);
-	}
 	return (tbl);
 }
