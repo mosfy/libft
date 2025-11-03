@@ -6,16 +6,16 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 23:14:44 by tfrances          #+#    #+#             */
-/*   Updated: 2025/11/03 22:08:30 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/11/03 22:47:59 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*tmp;
-	
+
 	if (!lst)
 		return (NULL);
 	tmp = lst;
@@ -23,5 +23,5 @@ t_list *ft_lstlast(t_list *lst)
 	{
 		tmp = tmp->next;
 	}
-    return(tmp);
+	return (tmp);
 }

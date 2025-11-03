@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:54:26 by tfrances          #+#    #+#             */
-/*   Updated: 2025/11/01 22:37:15 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/11/03 22:46:57 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if(!lst || !new)
+	if (!lst || !new)
 	{
-		return;
+		return ;
 	}
 	new->next = *lst;
 	*lst = new;

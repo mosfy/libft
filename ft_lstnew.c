@@ -6,7 +6,7 @@
 /*   By: tfrances <tfrances@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:45:29 by tfrances          #+#    #+#             */
-/*   Updated: 2025/11/01 23:07:11 by tfrances         ###   ########.fr       */
+/*   Updated: 2025/11/03 22:47:50 by tfrances         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*newnode;
+
 	newnode = malloc(sizeof(t_list));
 	if (!newnode)
 		return (NULL);
